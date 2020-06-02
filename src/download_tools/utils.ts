@@ -146,7 +146,7 @@ export function generateStatusMessage(totalLength: number, completedLength: numb
   var speedStr = formatSize(speed);
   var eta = downloadETA(totalLength, completedLength, speed);
   var type = isUploading ? '✈️ Uploading' : '✏️ File Name';
-  var message = `<b>${type}</b> : <code>${fileName}</code>\n<b>Size</b> : <code>${totalLengthStr}</code>\n<b>Progress</b> : <code>${progressString}</code>\n<b>⚡️ Speed</b> : <code>${speedStr}ps</code>\n<b>ETA</b> : <code>${eta}</code>`;
+  var message = `<b>${type}</b> : <code>${fileName}</code>\n<b>Size</b> : <code>${totalLengthStr}</code>\n<b>Progress</b> : <code>${progressString}</code>\n<b>⚡️ Speed</b> : <code>${speedStr} /S</code>\n<b>ETA</b> : <code>${eta}</code>`;
   var status = {
     message: message,
     filename: fileName,
@@ -177,16 +177,16 @@ function generateProgress(p: number): string {
 }
 
 export function formatSize(size: number): string {
-  if (size < 1000) {
-    return formatNumber(size) + 'B';
+  if (size < 1024) {
+    return formatNumber(size) + ' B';
   }
   if (size < 1024000) {
-    return formatNumber(size / 1024) + 'KB';
+    return formatNumber(size / 1024) + ' KB';
   }
   if (size < 1048576000) {
-    return formatNumber(size / 1048576) + 'MB';
+    return formatNumber(size / 1048576) + ' MB';
   }
-  return formatNumber(size / 1073741824) + 'GB';
+  return formatNumber(size / 1073741824) + ' GB';
 }
 
 function formatNumber(n: number): number {
