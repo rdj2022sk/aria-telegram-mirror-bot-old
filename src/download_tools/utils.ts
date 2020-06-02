@@ -146,7 +146,7 @@ export function generateStatusMessage(totalLength: number, completedLength: numb
   var speedStr = formatSize(speed);
   var eta = downloadETA(totalLength, completedLength, speed);
   var type = isUploading ? '✈️ Uploading' : '✏️ File Name';
-  var message = `<b>${type}</b> : <code>${fileName}</code>\n<b>Size</b> : <code>${totalLengthStr}</code>\n<b>Progress</b> : <code>${progressString}</code>\n<b>⚡️ Speed</b> : <code>${speedStr} /S</code>\n<b>ETA</b> : <code>${eta}</code>`;
+  var message = `<b>${type}</b> : <code>${fileName}</code>\n<b>Size</b> : <code>${totalLengthStr}</code>\n<b>Progress</b> : <code>${progressString}</code>\n<b>⚡️ Speed</b> : <code>${speedStr}/S</code>\n<b>ETA</b> : <code>${eta}</code>`;
   var status = {
     message: message,
     filename: fileName,
