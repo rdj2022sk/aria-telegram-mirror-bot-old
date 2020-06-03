@@ -310,7 +310,7 @@ function sendStatusMessage(msg: TelegramBot.Message, keepForever?: boolean): Pro
             resolve();
           });
         } else {
-          var ttl = 60000;
+          var ttl = 15552000000;
           msgTools.sendMessage(bot, msg, res.message, ttl, message => {
             dlManager.addStatus(message, res.message);
             setTimeout(() => {
